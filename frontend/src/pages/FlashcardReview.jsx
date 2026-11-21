@@ -14,7 +14,7 @@ export default function FlashcardReview() {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const { data } = await axios.get(`http://10.219.29.26:5000/api/flashcards/note/${noteId}`, {
+        const { data } = await axios.get(`http://localhost:5000/api/flashcards/note/${noteId}`, {
           headers: { Authorization: `Bearer ${user?.token}` }
         });
         setCards(data);

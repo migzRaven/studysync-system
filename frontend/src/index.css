@@ -2,6 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =====================================
+   STUDYSYNC GLOBAL THEME
+===================================== */
+
 body {
-  @apply bg-[#F3ECDF] text-[#2B2A28];
+  @apply bg-[#F3ECDF] text-[#2B2A28] transition-colors duration-300;
+}
+
+html.dark body {
+  @apply bg-[#171923] text-[#F3F4F6];
+}
+
+/* Dark mode text selection and scrollbars */
+html.dark {
+  color-scheme: dark;
+}
+
+/* =====================================
+   STUDYSYNC RICH TEXT EDITOR
+===================================== */
+
+.study-editor .tiptap {
+  min-height: 350px;
+  outline: none;
+  white-space: pre-wrap;
+}
+
+.study-editor .tiptap p {
+  margin-bottom: 12px;
+}
+
+.study-editor .tiptap h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 20px 0 12px;
+}
+
+.study-editor .tiptap h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 18px 0 10px;
+}
+
+.study-editor .tiptap ul {
+  list-style-type: disc;
+  padding-left: 25px;
+  margin-bottom: 12px;
+}
+
+.study-editor .tiptap ol {
+  list-style-type: decimal;
+  padding-left: 25px;
+  margin-bottom: 12px;
+}
+
+.study-editor .tiptap blockquote {
+  border-left: 4px solid #6656E0;
+  padding-left: 15px;
+  color: #6B655A;
+  margin: 15px 0;
+}
+
+.study-editor .tiptap p.is-editor-empty:first-child::before {
+  color: #A9A29D;
+  content: "Start writing your note here...";
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Rich text editor dark mode */
+html.dark .study-editor .tiptap {
+  color: #F3F4F6;
+}
+
+html.dark .study-editor .tiptap blockquote {
+  color: #B8B5C7;
+}
+
+html.dark .study-editor .tiptap p.is-editor-empty:first-child::before {
+  color: #777B8D;
+}
+
+/* StudySync Note Editor - Dark Mode */
+html.dark .study-editor .tiptap {
+  color: #F3F4F6;
+}
+
+html.dark .study-editor .tiptap h1,
+html.dark .study-editor .tiptap h2 {
+  color: #FFFFFF;
+}
+
+html.dark .study-editor .tiptap strong {
+  color: #FFFFFF;
+}
+
+html.dark .study-editor .tiptap blockquote {
+  color: #B8B5C7;
+  border-left-color: #8B7CF6;
+}
+
+html.dark .study-editor .tiptap ul,
+html.dark .study-editor .tiptap ol {
+  color: #E5E7EB;
 }

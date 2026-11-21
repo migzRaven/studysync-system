@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 
 const noteSchema = new mongoose.Schema(
@@ -5,23 +6,52 @@ const noteSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
+      trim: true,
     },
+
+    // Supports plain text and rich-text HTML
     content: {
       type: String,
       required: true,
     },
+
     subject: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'Subject', // Links the note to a specific subject
+      ref: 'Subject',
     },
+
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'User', // Links the note to the logged-in user
+      ref: 'User',
+    },
+
+    // Pin important notes
+    isPinned: {
+      type: Boolean,
+      default: false,
+    },
+
+    // Note tags
+    tags: {
+      type: [String],
+      default: [],
+    },
+
+    // Favorite notes
+    isFavorite: {
+      type: Boolean,
+      default: false,
+    },
+
+    // Phase 3: Soft deletion / Trash
+    isDeleted: {
+      type: Boolean,
+      default: false,
     },
   },
-  { timestamps: true } // Automatically adds createdAt and updatedAt dates
+  { timestamps: true }
 );
 
 module.exports = mongoose.model('Note', noteSchema);
